@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=1024" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <title>Graph Databases | Vermonster</title>
+      
+      <meta name="description" content="A talk on graph databases, graph theory, and neo4j" />
+      <meta name="author" content="Joe Fredette" />
+
+      <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+      <link href="css/impress-demo.css" rel="stylesheet" />
+
+      <link rel="shortcut icon" href="favicon.png" />
+      <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  </head>
+
+  <body>
+    <div class="fallback-message">
+      <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+      <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+    </div>
+
+    <div id="impress">
+      <div id="polyglot" class="step" data-x="0" data-y="0">
+        <h1>Polyglot with Graphs</h1>
+      </div>
+
+      <div id="polyglot-defn" class="step" data-x="0000" data-y="200">
+        <blockquote>
+          <p>
+            Using multiple data storage technologies, chosen based upon the way
+            data is being used by individual applications
+          </p>
+          <p>
+            -- <a href="http://martinfowler.com/bliki/PolyglotPersistence.html">Martin Fowler and Pramod Sadalage</a>
+          </p>
+        </blockquote>
+      </div>
+
+      <div id="polyglot-defn-explained-1" class="step" data-x="0000" data-y="1000" data-scale="0.5">
+        <strong>Optimize Tools</strong> to the <strong>Questions</strong> you're trying to answer.
+      </div>
+
+      <div id="where-graphs-fit" class="step" data-x="0" data-y="2000" data-scale="0.5">
+        Graphs are about <strong>relationships</strong>.
+      </div>
+
+      <div id="graphs-in-db-land" class="step" data-x="0000" data-y="3000" data-rotate="90"  data-scale="1">
+        Graphs represent: 
+      </div>
+
+        <div class="step" data-x="-000" data-y="3200" data-scale="0.5" data-rotate="90">
+          objects as nodes
+        </div>   
+        
+        <div class="step" data-x="-040" data-y="3200" data-scale="0.5" data-rotate="90">
+          relationships as edges
+        </div>
+
+
+      <div id="uses-for-graph-dbs" class="step" data-x="3750" data-y="2000" data-scale="1">
+        Use Cases
+      </div>
+
+        <div id="secondary-store" class="step" data-x="3000" data-y="3000" data-scale="1">
+          As Secondary Storage
+        </div>
+
+            <div id="secondary-store-0" class="step" data-x="3000" data-y="3100" data-scale="0.5">
+              Authored data goes to a primary, write-optimized store
+            </div>
+
+            <div id="secondary-store-1" class="step" data-x="3000" data-y="3200" data-scale="0.5">
+              Publicly consumed data goes to the read-optimized graph
+            </div>
+
+          <div id="secondary-examples" class="step" data-x="4500" data-y="3000" data-scale="1">
+            For Example
+          </div>
+
+            <div id="secondary-example-0" class="step" data-x="4500" data-y="3100" data-scale="0.5">
+              Genealogy and Artifact Archive
+            </div>
+
+            <div id="secondary-example-1" class="step" data-x="4500" data-y="3200" data-scale="0.5">
+              Comic Book Universe Archive
+            </div>
+
+            <div id="secondary-example-2" class="step" data-x="4500" data-y="3300" data-scale="0.5">
+              Online Store
+            </div>
+
+        <div id="main-store" class="step" data-x="3000" data-y="4000" data-scale="1">
+          As Main Storage
+        </div>
+
+            <div id="main-store-0" class="step" data-x="3000" data-y="4100" data-scale="0.5">
+              Low ORM Impedance
+            </div>
+
+            <div id="main-store-1" class="step" data-x="3000" data-y="4200" data-scale="0.5">
+              Schemaless
+            </div>
+
+          <div id="main-examples" class="step" data-x="4500" data-y="4000" data-scale="1">
+            For Example
+          </div>
+
+            <div id="main-example-0" class="step" data-x="4500" data-y="4100" data-scale="0.5">
+              Social Network
+            </div>
+
+            <div id="main-example-1" class="step" data-x="4500" data-y="4200" data-scale="0.5">
+              Shipping Tracker
+            </div>
+
+            <div id="main-example-2" class="step" data-x="4500" data-y="4300" data-scale="0.5">
+              Anything with rapidly evolving relationships between models
+            </div>
+
+      <!-- ####################################################################### -->
+
+      <div id="why-graphs?" class="step" data-x="0" data-y="0" data-z="5000" data-rotate-y="90" >
+        Why Graphs?
+      </div>
+
+      <div id="why-not-zoidberg?" class="step" data-x="0" data-y="100" data-z="5000" data-rotate-y="90" >
+        What makes a Graph DB <strong>better?</strong>
+      </div>
+
+      <div id="already-mentioned" class="step" data-x="0" data-y="1500" data-z="5000" data-rotate-y="90" >
+        Beyond what we've already mentioned
+      </div>
+
+        <div id="schemafree" class="step" data-x="0" data-y="1600" data-z="5000" data-scale="0.5" data-rotate-y="90">
+          Schema-free 
+        </div>
+
+        <div id="low-impedance" class="step" data-x="0" data-y="1700" data-z="5000" data-scale="0.5" data-rotate-y="90">
+          Low ORM Impedance
+        </div>
+
+      <div id="other-benefits" class="step" data-x="0" data-y="3000" data-z="5000" data-scale="1" data-rotate-y="90">
+        You also get the ability to answer deep, meaningful questions, <strong>quickly</strong>
+      </div>
+
+        <div id="deep-question-ex-0" class="step" data-x="0" data-y="3150" data-z="5000" data-scale="0.5" data-rotate-y="90">
+          "How important is this object?" 
+        </div>
+
+        <div id="deep-question-ex-1" class="step" data-x="0" data-y="3200" data-z="5000" data-scale="0.5" data-rotate-y="90">
+          "How are these two things related?"
+        </div>
+
+      <div id="graph-metrics" class="step" data-x="0" data-y="4500" data-z="5000" data-scale="1" data-rotate-y="90">
+        You can answer these questions with <em>graph metrics</em> and <em>graph algorithms</em>
+      </div>
+        
+        <div id="graph-metric-name-1" class="step" data-x="0" data-y="4250" data-z="4800" data-scale="1" data-rotate-y="90">
+          Shortest Path
+        </div>
+        
+        <div id="graph-metric-name-2" class="step" data-x="0" data-y="4500" data-z="4150" data-scale="1" data-rotate-y="90">
+          Random Walks
+        </div>
+
+        <div id="graph-metric-name-0" class="step" data-x="0" data-y="4750" data-z="4775" data-scale="1" data-rotate-y="90">
+          Eccentricity
+        </div>
+
+        <div id="graph-metric-name-3" class="step" data-x="0" data-y="4500" data-z="5350" data-scale="1" data-rotate-y="90">
+          Centrality
+        </div>
+
+      <div id="neo4j" class="step" data-x="-10000" data-y="4500" data-z="0" data-scale="1">
+        Centrality
+      </div>
+
+        <div id="degree-centrality" class="step" data-x="-10000" data-y="4750" data-scale="0.5">
+          Degree Centrality <br/> measures "throughput"
+        </div>
+
+        <div id="closeness-centrality" class="step" data-x="-10000" data-y="5000" data-scale="0.5">
+          Closeness Centrality <br/> measures relative distance
+        </div>
+
+        <div id="eigenvector-centrality" class="step" data-x="-10000" data-y="5250" data-scale="0.5">
+          Eigenvector Centrality <br/> measures "gravity"
+        </div>
+
+      <div id="links" class="step" data-x="-10000" data-y="-5000" data-z="5000" data-scale="5">
+        <a href="http://www.github.com/jfredett/neo4j-talk">The slides</a><br/>
+        <a href="http://en.wikipedia.org/wiki/Centrality" >Centrality on Wikipedia</a>
+      </div>
+
+
+
+
+
+        <!--<div id="" class="step" data-x="0000" data-y="3000" data-z data-scale="2" data-rotate-y="90">-->
+        <!--</div>-->
+
+      
+    </div>
+  </body>
+
+  <script src="js/impress.js"></script>
+  <script>impress().init();</script>
+
+</html>
